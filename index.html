@@ -1,0 +1,76 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AI Demo</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="main.css" rel="stylesheet">
+    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+    <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Default classifier</a>
+            <a class="navbar-brand" href = 'custom_classifier.html'>Custom classifier</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="content" style="margin-top:2em">
+
+          <h2>Image Classifier</h2>
+          <ul>
+            <li><a class="button active" data-rel="#upload-choice-section" href="#">Upload picture</a></li>
+            <li><a class="button" data-rel="#webcam-section" href="#">Use webcam</a></li>
+          </ul>
+
+          <div class="container_inner" id="upload-choice-section" style="display:none;">
+              <form id="upload-file" method="post" enctype="multipart/form-data">
+                  <label for="imageUpload" class="btn btn-outline-secondary">
+                      Choose...
+                  </label>
+                  <input type="file" name="image" id="imageUpload" accept=".png, .jpg, .jpeg">
+              </form>
+
+              <div class="image-section" style="display:none;">
+                  <div class="img-preview">
+                      <div id="imagePreview"></div>
+                  </div>
+                  <div>
+                      <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+                  </div>
+              </div>
+
+              <div class="loader" style="display:none;"></div>
+
+              <h3 id="result">
+                  <span> </span>
+              </h3>
+
+          </div>
+          <div class="container_inner" id="webcam-section" style="display:none;">
+            <div>
+              <button type="button" class="btn btn-primary btn-lg " id="webcam-predict">Predict!</button>
+            </div>
+            <div>
+              <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
+            </div>
+            <h3 id="result_web">
+                <span> </span>
+            </h3>
+          </div>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <script src="index.js" type="text/javascript"></script>
+</footer>
+
+</html>
